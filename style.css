@@ -1,0 +1,387 @@
+
+/*navbar*/
+/* Add a responsive navbar */
+.nav-link {
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #1f2937; /* Darker gray for hover effect */
+}
+
+#home-link {
+    color: #1f2937; /* Hitam saat Home diklik */
+}
+
+/* Make navbar more responsive */
+@media (max-width: 640px) {
+    .nav-link {
+        display: block;
+        padding: 1rem 0;
+    }
+    .ml-10 {
+        margin-left: 0;
+    }
+}
+
+/*alern*/
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.object-cover {
+    object-fit: cover;
+}
+
+.text-white {
+    color: white;
+}
+
+.drop-shadow-lg {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.mb-8 {
+    margin-bottom: 2rem;
+}
+
+.ml-10 {
+    margin-left: 2.5rem;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+    .ml-10 {
+        margin-left: 1rem; /* Sesuaikan margin untuk layar kecil */
+    }
+    .text-6xl {
+        font-size: 4xl; /* Sesuaikan ukuran font untuk layar kecil */
+    }
+    .text-lg {
+        font-size: 16px; /* Sesuaikan ukuran teks untuk layar kecil */
+    }
+    .mb-4 {
+        margin-bottom: 1rem; /* Sesuaikan margin-bottom untuk layar kecil */
+    }
+    .mb-8 {
+        margin-bottom: 2rem; /* Sesuaikan margin-bottom untuk layar kecil */
+    }
+}
+
+/* Wrapper utama POMODORO*/
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full tinggi layar */
+    background-color: #f9fafb; /* Latar belakang */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container utama untuk Pomodoro Timer */
+.container-time {
+    text-align: center;
+    max-width: 600px; /* Lebar maksimum */
+    width: 100%; /* Penuh layar pada perangkat kecil */
+    padding: 2rem;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/*.container-time:hover {
+    transform: scale(1.05);} /* Efek zoom saat di-hover */
+
+/* Judul */
+h4 {
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 50px; /* Ukuran font lebih besar */
+    font-weight: bold; /* Tebal font */
+}
+
+/* Styling untuk input waktu */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 15px; /* Padding lebih besar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-group label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    width: 60px;
+    text-align: center;
+    outline: none;
+}
+
+.timer {
+    font-size: 48px;
+    font-weight: bold;
+    color: #333;
+    margin: 20px 0; /* Margin atas dan bawah */
+    letter-spacing: 2px; /* Spasi huruf */
+}
+
+#timer-status {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.progress-bar-fill {
+    width: 100%;
+    height: 10px;
+    transition: width 0.25s;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px; /* Gap lebih besar */
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 12px 24px; /* Padding lebih besar */
+    font-size: 16px;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Tambahkan transisi transform */
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+button:hover {
+    transform: translateY(-2px); /* Efek hover untuk tombol */
+}
+
+button.start {
+    background-color: #6d9cd2;
+    color: white;
+}
+
+button.pause {
+    background-color: #ffe607;
+    color: white;
+}
+
+button.reset {
+    background-color: #f64b59;
+    color: white;
+}
+
+button.delete {
+    background-color: #8d959d;
+    color: white;
+}
+
+button.resume {
+    background-color: #5692d2;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.statistics-content {
+    margin-top: 20px;
+    text-align: center;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.statistics-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.statistics-content p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .input-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .buttons button {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+    
+
+/* Tambahkan transisi untuk efek mulus */
+ .transition-navbar {
+    transition: background-color 0.5s ease, backdrop-filter 0.5s ease;
+}
+
+p {
+    max-width: 600px; /* Maksimal lebar paragraf */
+    overflow: hidden; /* Potong teks yang berlebih */
+    text-overflow: ellipsis; /* Tambahkan elipsis (...) jika teks terpotong */
+        }
+
+        .progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: #38bdf8;
+    transition: width 1s linear;
+}
+
+
+
+
+/* Wrapper untuk Timer dan Statistik */
+.page-container {
+display: flex;
+justify-content: space-between; /* Membagi ruang di antara kedua elemen */
+align-items: flex-start;
+padding: 20px;
+gap: 20px; /* Jarak antar elemen */
+}
+
+/* Timer Section */
+.timer-section {
+flex: 1; /* Membuat Timer mengisi ruang yang sama dengan Statistik */
+}
+
+.timer-content {
+background-color: #f4f4f9;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Statistik Section */
+.statistics-container {
+flex: 1;
+background-color: #f4f4f9;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Statistik Styling (Seperti sebelumnya) */
+.statistics-title {
+text-align: center;
+font-size: 24px;
+color: #333;
+margin-bottom: 15px;
+}
+
+.stat-item {
+font-size: 18px;
+color: #444;
+margin: 8px 0;
+padding: 10px;
+background-color: #fff;
+border-radius: 5px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+display: flex;
+justify-content: space-between;
+}
+
+/* Optional Color for Stats 
+#total-sessions {
+background-color: #e3f2fd;
+}
+
+#total-study-time {
+background-color: #c8e6c9;
+}
+
+#total-break-time {
+background-color: #ffccbc;
+}
+
+#average-study-time {
+background-color: #fff9c4;
+}
+
+#average-break-time {
+background-color: #f8bbd0;
+}*/
+
+#motivasi { 
+font-size: 20px; /* Menyesuaikan ukuran font */ 
+color: #ffffff; 
+text-align: center; 
+margin-top: 20px; 
+} 
+.motivasi { 
+padding: 10px; 
+background-color: transparant; 
+border-radius: 20px; 
+box-shadow: 0 0 9px rgba(0, 0, 0, 0.1); 
+}
