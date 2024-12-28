@@ -217,9 +217,8 @@ motivasi.textContent = motivasiList[randomIndex];
 
 setInterval(ubahMotivasi, 5 * 60 * 1000);  // Ubah pesan setiap 5 menit
 ubahMotivasi();  // Tampilkan pesan pertama segera setelah halaman dimuat
-//
 
-  // POMODORO TIMER
+// POMODORO TIMER
 const timerDisplay = document.getElementById('timer');
 const startBtn = document.getElementById('start-btn');
 const pauseBtn = document.getElementById('pause-btn');
