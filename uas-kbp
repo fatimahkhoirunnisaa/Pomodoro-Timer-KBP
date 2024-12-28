@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alearn's</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="./css/style.css"> <!-- Menghubungkan CSS dengan jalur relatif -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.54/build/spline-viewer.js"></script>
+</head>
+<body>
+<class="h-full">
+    <div class="min-h-full">
+        <!-- Navbar backdrop-blur-lg -->
+        <nav id="navbar" class="fixed w-full top-0 z-10 transition-navbar bg-white bg-opacity-30">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex h-16 items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="shrink-0">
+                            <img class="h-8" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+                        </div>
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#" id="home-link" class="nav-link text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-bold">Home</a>
+                            <a href="#to-do-list" class="nav-link text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-bold">To-Do-List</a>
+                            <a href="#timer-section" class="nav-link text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-bold">Timer</a>
+                            <a href="#spotify" class="nav-link text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-bold">Spotify</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav> 
+    </div>
+
+       <!-- Home Section with Background Image -->
+        <img src="/images/Desain judul.png" alt="bg" class="absolute inset-0 w-full h-full object-cover">
+        <div class="relative h-screen bg-cover bg-center text-white">
+            <div class="absolute top-1/2 left-0 transform -translate-y-1/2 ml-10 text-left">
+                <h1 class="text-6xl font-bold mb-4 drop-shadow-lg">Welcome to Alearn's!</h1>
+                <p style="font-size: 19px; font-weight: semibold;" id="description" class="text-lg mb-8 drop-shadow-md">
+                    Alearn's adalah assistant learning yang memudahkan kamu mengatur waktu, menikmati musik, dan mencatat pembelajaranmu. Satu website keren untuk semua kebutuhan produktivitasmu!🚀
+                </p>
+            </div>
+        </div>
+
+         <!-- TO-DO-LIST -->
+        <div id="to-do-list" 
+            class="h-screen flex items-center justify-center flex-col text-center" 
+            style="background-image: url('/images/todo.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
+            <div class="container text-white">
+                <h1 class="text-5xl font-bold mb-4 drop-shadow-lg" style="margin-bottom: 20px;">Enjoy your studies!</h1>
+                <div id="motivasi" class="motivasi">Tetap semangat! Setiap langkah kecil membawa kita lebih dekat pada tujuan.</div>
+            </div>
+            <h2 class="text-4xl font-bold text-white mb-4" style="margin-top: 40px; margin-bottom: 30px;">To-Do-List</h2>
+            <div class="w-full max-w-md">
+                <!-- Input Field -->
+                <div class="mb-4">
+                    <input type="text" id="task-input" placeholder="Add a new task..." class="w-full px-4 py-2 border-2 border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <button onclick="addTask()" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500">Add Task</button>
+                <ul id="task-list" class="mt-6 space-y-4">
+                    <!-- Task list items will be dynamically inserted here -->
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Wrapper utama -->
+        <div class="wrapper" id="timer-section" style="background-image: url('/images/todo.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <!-- POMODORO -->
+            <div class="container-time">
+                <h4>Pomodoro Timer</h4>
+            
+                <!-- Progress Bar -->
+                <div id="progress-bar-fill" class="progress-bar-fill"></div>
+            
+                <!-- Timer Settings -->
+                <div class="input-container">
+                    <div class="input-group">
+                        <label for="work-time">🕒 Waktu Belajar (menit):</label>
+                        <input type="number" id="work-time" value="25" min="1">
+                    </div>
+                    <div class="input-group">
+                        <label for="break-time">☕ Waktu Istirahat (menit):</label>
+                        <input type="number" id="break-time" value="5" min="1">
+                    </div>
+                </div>      
+            
+                <div class="timer text-center" id="timer">25:00</div>
+                <div id="timer-status" class="mt-2 text-center text-gray-900 font-medium">Waktu Belajar Dimulai</div>
+            
+                <!-- Control Buttons -->
+                <div class="buttons">
+                    <button class="start font-medium" id="start-btn">Start</button>
+                    <button class="pause font-medium" id="pause-btn">Pause</button>
+                    <button class="reset font-medium" id="reset-btn">Reset</button>
+                    <button class="delete font-medium" id="delete-btn">Delete</button>
+                    <button class="start font-medium" id="resume-btn">Resume</button>
+                </div>
+            
+                <!-- Statistics -->
+                <div class="statistics-content flex items-center justify-center flex-col w-full">
+                    <h2 class="statistics-title font-bold">Statistics</h2>
+                    <p id="total-sessions" class="font-semibold">Total Sessions: 0</p>
+                    <p id="total-study-time" class="font-semibold">Total Study Time: 0 minutes</p>
+                    <p id="total-break-time" class="font-semibold">Total Break Time: 0 minutes</p>
+                </div>
+            </div>
+        </div>
+
+         <!-- Alarm -->
+        <audio id="alarm-sound" src="/images/alarm.mp3" preload="auto"></audio>
+
+        <!-- Spotify Section <iframe id="spotify-player" src="" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> -->
+        <div id="spotify"  
+        class="h-screen flex items-center justify-center flex-col text-center" 
+        style="background-image: url('/images/spotify.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <h2 class="text-5xl font-bold text-white mb-6">Enjoy Some Music 🎵</h2>
+            <h3 class="text-5xl font-bold text-white mb-6">on Spotify!!!</h3>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6mJPP6k7pSmhHkELFfdUZu?utm_source=generator&theme=0" width="70%" height="480" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <p id="track-info" class="text-white text-lg mt-4"></p>
+        </div>
+    </div>
+</body>
+</html>
